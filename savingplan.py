@@ -1,6 +1,5 @@
 
 
-
 from datetime import datetime
 from datetime import date
 
@@ -28,7 +27,7 @@ def diffy_day(d1, d2):
     
 
     
-    
+
 
 class Bank:
     def __init__(self):
@@ -59,21 +58,46 @@ class Bank:
             answer = input("Do you want set date start?(yes/no) : ")
             if answer == 'yes':
                 year = int(input("Enter Year : "))
-                month = int(input("Enter Month : "))
+                while True:       
+                    month = int(input("Enter Month : "))
+                    if 1<= month <= 12:
+                        break
+                    else:
+                        print("Invalid input, please enter again")
                 date_input = int(input("Enter Date : "))
+                while True:
+                     if 1<= date_input <= 31:
+                        break
+                     else:
+                        print("Invalid input, please enter again")
                 date_time = date(year, month, date_input)
                 self.date_start = date_time
             elif answer =='no':
-                self.date_start = date.today()
+             self.date_start = date.today()
             else:
-                print("Please enter yes or no ")
-                x.setTargetMoney()
+             print("Please enter yes or no ")
+             x.setTargetMoney()
 
     def setDeadLine(self):
         print("Set a deadline")
-        year = int(input("Enter Year : "))
-        month = int(input("Enter Month : "))
-        date_input = int(input("Enter Date : "))
+        while True:
+            year = int(input("Enter Year : "))
+            if year >= date.today().year:
+                break
+            else:
+                print("Enter a valid year")
+        while True:
+            month = int(input("Enter Month : "))
+            if 1<= month <= 12:
+                        break
+            else:
+                print("Invalid input, please enter again")
+        while True:
+            date_input = int(input("Enter Date : "))
+            if date_input<=31:
+                break
+            else:
+                print("Invalid input, please enter again")
         date_time = date(year, month, date_input)
         self.date_end = date_time
 
@@ -190,4 +214,5 @@ while True:
     
 
         
+
 
